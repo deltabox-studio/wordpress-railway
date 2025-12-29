@@ -143,4 +143,4 @@ vite.config.ts.timestamp-*
 # Custom
 .yarn/
 yarn.lock
-data/uploads/*
+# data/uploads/*
