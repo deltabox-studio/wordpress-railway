@@ -1,0 +1,10 @@
+{
+  "name": "wordpress-railway",
+  "version": "0.1.0",
+  "description": "WordPress on Railway | Zero Config | Seamless Local Dev | Docker",
+  "type": "module",
+  "scripts": {
+    "dev": "docker compose -f compose.yaml up"
+  },
+  "packageManager": "yarn@4.12.0"
+}

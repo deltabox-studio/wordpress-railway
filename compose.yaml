@@ -1,0 +1,58 @@
+services:
+  wordpress:
+    build: .
+    restart: always
+    ports:
+      - 8080:80
+
+    environment:
+      WORDPRESS_CONFIG_EXTRA: "define('DOMAIN_CURRENT_SITE','localhost:8080');define('WP_HOME','http://localhost:8080');define('WP_SITEURL','http://localhost:8080');"
+      WORDPRESS_DB_HOST: ${WORDPRESS_DB_HOST:-wordpress-db}
+      WORDPRESS_DB_USER: ${WORDPRESS_DB_USER:-wordpress}
+      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD:-wordpress}
+      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME:-wordpress}
+
+    volumes:
+      - wordpress-data:/var/www/html
+      - ./data/plugins:/var/www/html/wp-content/plugins
+      - ./data/themes:/var/www/html/wp-content/themes
+      - ./data/uploads:/var/www/html/wp-content/uploads
+
+    depends_on:
+      wordpress-db:
+        condition: service_healthy
+
+  wordpress-db:
+    image: mysql
+    restart: always
+
+    environment:
+      HEALTHCHECK_HOST: localhost
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-wordpress}
+      MYSQL_USER: ${MYSQL_USER:-wordpress}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-wordpress}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-wordpress}
+
+    volumes:
+      - wordpress-db-data:/var/lib/mysql
+
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "mysql",
+          "-h",
+          "${HEALTHCHECK_HOST}",
+          "-u",
+          "root",
+          "-p${MYSQL_ROOT_PASSWORD}",
+          "-e",
+          "SELECT 1;",
+        ]
+      interval: 5s
+      timeout: 20s
+      retries: 10
+
+volumes:
+  wordpress-data:
+  wordpress-db-data:
