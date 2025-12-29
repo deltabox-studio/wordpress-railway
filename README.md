@@ -1,16 +1,30 @@
 # WordPress on Railway
 
-This template allows you to easily deploy WordPress to Railway with support for local development out of the box.
+Easily deploy WordPress to Railway with **seamless** support for **local development** out of the box.
+
+Focus is on the local development, so you can easily **create/manage custom plugins, themes or uploads** without relying on Railway's SSH.
+
+The template is easily **flexible** so you can use it in a **monorepo** or **extend it as you'd like**.
+
+## Deployment
 
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/templates)
 
+1. Click the "Deploy on Railway" button above.
+2. Follow the instructions to deploy the template at Railway.
+3. Open the URL assigned by Railway in your browser (eg. https://your-app-name.up.railway.app).
+4. Enjoy!
+
 ## Local Development
 
-- Manage plugins, themes and uploads locally in these linked directories:
+- Manage plugins, themes and uploads locally in these directories:
   - `./data/plugins`
   - `./data/themes`
   - `./data/uploads`
-- Will automatically sync local changes to the WordPress installation.
+- Will automatically sync local changes to WordPress.
+- Add an existing WordPress installation in `./data/migrate` to use it as the base installation.
+- Only `plugins`, `themes` and `uploads` are synced, the rest are ignored by default to avoid messing up the core files of WordPress.
+  - Feel free to add more directories if you need them.
 
 ### Prerequisites
 
@@ -30,9 +44,8 @@ Assuming you have already deployed the template in Railway:
    - or `docker compose -f compose.yaml up`.
 5. Open http://localhost:8080 in your browser to access WordPress.
 
-## Deployment
+### Troubleshooting
 
-1. Click the "Deploy on Railway" button above.
-2. Follow the instructions to deploy the template at Railway.
-3. Open the URL assigned by Railway in your browser (eg. https://your-app-name.up.railway.app).
-4. Enjoy!
+Report any issues or suggestions [here](https://github.com/deltabox-studio/wordpress-railway/issues).
+
+- If you accidentally delete the directories `data/plugins`, `data/themes`, `data/uploads` or `data/migrate` you can run `yarn dirs` to recreate them.
