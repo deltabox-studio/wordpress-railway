@@ -1,6 +1,6 @@
 # WordPress on Railway
 
-Easily deploy WordPress on Railway with **seamless** support for **local development** out of the box.
+Easily deploy [WordPress](https://wordpress.com/) on Railway with **seamless** support for **local development** out of the box.
 
 Focal point of this template compared to the others is the local development, so you can easily **create/manage** custom **WordPress plugins, themes and uploads** without relying on Railway's SSH to access the files.
 
@@ -13,14 +13,24 @@ The template is **flexible** and **extendable** so you can even use it in a **mo
 - You want to use WordPress as a headless CMS (API) for your frontend application.
 - You have an existing WordPress installation and want to migrate/use it on Railway.
 
-## Deployment
+## Deploy and Host
 
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/wordpress-nodejsdocker?referralCode=5W_-3P)
-
-1. Click the "Deploy on Railway" button above.
-2. Follow the instructions to deploy the template at Railway.
+1. Click the button to use the template.
+2. Follow the instructions (zero-config).
 3. Open the URL assigned by Railway in your browser (eg. https://your-app-name.up.railway.app).
 4. Enjoy!
+
+### Deployment Dependencies
+
+- [WordPress Docker image](https://hub.docker.com/_/wordpress/)
+- [MySQL Docker image](https://hub.docker.com/_/mysql)
+- [Node.js](https://nodejs.org) (optional - for local developyment)
+
+### About Hosting
+
+This template creates the Apache server (WordPress) and MySQL database for you.
+
+The domain for the WordPress application will be the provided public domain by Railway or your own domain.
 
 ## Local Development
 
@@ -35,7 +45,7 @@ In case you want to develop WordPress locally.
 - Only `plugins`, `themes` and `uploads` are synced, the rest are ignored by default to avoid messing up the core files of WordPress.
   - Feel free to add more directories if you need them.
 
-### Prerequisites
+### Dependencies for this template
 
 Prerequisites for local development.
 
@@ -47,7 +57,7 @@ Prerequisites for local development.
 
 Assuming you have already deployed the template on Railway:
 
-1. Clone this repository or create a new one using this as a template.
+1. Clone the [upstream repository](https://github.com/deltabox-studio/wordpress-railway) or create a new one using it as a template.
 2. Publish the repository to GitHub.
 3. At Railway change the `Source Repo` to your cloned repository to automatically redeploy the service from your own GitHub commits (optional).
 4. Either run:
@@ -60,3 +70,11 @@ Assuming you have already deployed the template on Railway:
 Report any issues or suggestions [here](https://github.com/deltabox-studio/wordpress-railway/issues).
 
 - If you accidentally delete the directories `data/plugins`, `data/themes`, `data/uploads` or `data/migrate` you can run `yarn dirs` to recreate them.
+
+## Why Deploy this template on Railway?
+
+<!-- Recommended: Keep this section as shown below -->
+Railway is a singular platform to deploy your infrastructure stack. Railway will host your infrastructure so you don't have to deal with configuration, while allowing you to vertically and horizontally scale it.
+
+By deploying WordPress (Node.js/Docker) on Railway, you are one step closer to supporting a complete full-stack application with minimal burden. Host your servers, databases, AI agents, and more on Railway.
+<!-- End recommended section -->
