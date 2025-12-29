@@ -8,7 +8,7 @@ The template is easily **flexible** so you can use it in a **monorepo** or **ext
 
 ## Deployment
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/templates)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/NrThZN?referralCode=5W_-3P)
 
 1. Click the "Deploy on Railway" button above.
 2. Follow the instructions to deploy the template at Railway.
