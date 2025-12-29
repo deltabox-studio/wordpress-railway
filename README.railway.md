@@ -2,16 +2,19 @@
 
 Easily deploy [WordPress](https://wordpress.com/) on Railway with **seamless** support for **local development** out of the box.
 
+This templates does not crash on deployment due to the [more than one MPM loaded](https://station.railway.com/questions/more-than-one-mpm-loaded-error-on-php-8-9c836859) error.
+
 Focal point of this template compared to the others is the local development, so you can easily **create/manage** custom **WordPress plugins, themes and uploads** without relying on Railway's SSH to access the files.
 
 The template is **flexible** and **extendable** so you can even use it in a **monorepo** or other project structures.
 
 ## Common Use Cases
 
-- You prefer self-hosting WordPress.
-- You want to develop WordPress plugins and themes.
-- You want to use WordPress as a headless CMS (API) for your frontend application.
-- You have an existing WordPress installation and want to migrate/use it on Railway.
+- You prefer **self-hosting** WordPress.
+- You want to **develop** WordPress **plugins and themes**.
+- You want to use WordPress as a **headless CMS** (API) for your frontend application.
+- You have an **existing WordPress** installation and want to migrate/use it on Railway.
+- You **can't deploy** the **other** WordPress **templates** due to crashes from the [more than one MPM loaded](https://station.railway.com/questions/more-than-one-mpm-loaded-error-on-php-8-9c836859) error.
 
 ## Deploy and Host
 
@@ -78,3 +81,8 @@ Railway is a singular platform to deploy your infrastructure stack. Railway will
 
 By deploying WordPress (Node.js/Docker) on Railway, you are one step closer to supporting a complete full-stack application with minimal burden. Host your servers, databases, AI agents, and more on Railway.
 <!-- End recommended section -->
+
+# License
+
+- **WordPress:** [GPL-2.0 (GNU General Public License v2.0)](https://wordpress.org/about/license/).
+- **MySQL:** [GPL-2.0 (GNU General Public License v2.0)](https://www.mysql.com/about/legal/licensing/oem/).
