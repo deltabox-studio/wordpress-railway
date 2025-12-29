@@ -4,7 +4,8 @@
   "description": "WordPress on Railway | Zero Config | Seamless Local Dev | Docker",
   "type": "module",
   "scripts": {
-    "dev": "docker compose -f compose.yaml up"
+    "dev": "docker compose -f compose.yaml up",
+    "dirs": "node ensure-dirs.js"
   },
   "packageManager": "yarn@4.12.0"
 }

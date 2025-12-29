@@ -17,7 +17,7 @@ else
     echo "No existing WordPress installation found in $TMP_WP_DATA_PATH/migrate"
 fi
 
-# copy existing WordPress installation if it exist
+# clean up temporary files
 if [ -n "$(ls -A /$TMP_WP_PATH)" ]; then
     echo "Cleaning up temporary files at $TMP_WP_PATH..."
     rm -rf "$TMP_WP_PATH"
