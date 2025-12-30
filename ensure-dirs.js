@@ -14,7 +14,7 @@ for (const folder of ["plugins", "themes", "uploads", "migrate"]) {
     }
 
     fs.mkdir(dirPath, { recursive: true });
-    fs.writeFile(gitKeepPath, "", { flag: "a" });
+    fs.writeFile(gitKeepPath, " ", { encoding: "utf-8" });
 
     console.log(`created: ${dirPath}`);
   } catch (error) {

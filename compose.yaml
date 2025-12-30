@@ -18,6 +18,13 @@ services:
       - ./data/themes:/var/www/html/wp-content/themes
       - ./data/uploads:/var/www/html/wp-content/uploads
 
+    healthcheck:
+      test: "curl -f http://localhost:80 || exit 1"
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
     depends_on:
       wordpress-db:
         condition: service_healthy
@@ -27,6 +34,7 @@ services:
     restart: always
 
     environment:
+      HEALTHCHECK_HOST: localhost
       MYSQL_DATABASE: ${MYSQL_DATABASE:-wordpress}
       MYSQL_USER: ${MYSQL_USER:-wordpress}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD:-wordpress}
@@ -36,21 +44,11 @@ services:
       - wordpress-db-data:/var/lib/mysql
 
     healthcheck:
-      test:
-        [
-          "CMD",
-          "mysql",
-          "-h",
-          "localhost",
-          "-u",
-          "root",
-          "-p${MYSQL_ROOT_PASSWORD}",
-          "-e",
-          "SELECT 1;",
-        ]
+      test: "mysqladmin ping -h $$HEALTHCHECK_HOST -u root -p$$MYSQL_ROOT_PASSWORD"
       interval: 5s
       timeout: 20s
       retries: 10
+      start_period: 10s
 
 volumes:
   wordpress-data:

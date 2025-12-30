@@ -9,7 +9,8 @@
     "restart": "yarn stop && yarn start",
     "clean": "docker compose -f compose.yaml down --volumes --rmi all",
     "clean:restart": "yarn clean && yarn start",
-    "dirs": "node ensure-dirs.js"
+    "dirs": "node ensure-dirs.js",
+    "dirs:clean": "node ensure-dirs.js clean"
   },
   "packageManager": "yarn@4.12.0"
 }
