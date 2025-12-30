@@ -49,15 +49,19 @@ Stops the WordPress server.
 
 #### **`yarn restart`**
 
-Stops the WordPress server and then start it again.
+Stops the WordPress server and then starts it again.
 
 #### **`yarn clean`**
 
-Stops the WordPress server and delete the docker container including it's image and volumes (**IMPORTANT:** This will delete all data in the volumes, so make sure you have a backup of your data before running this command).
+Stops the WordPress server and deletes the docker container including it's image and volumes.
+
+**IMPORTANT:** This will delete all data in the volumes, so make sure you have a backup of your data before running this command.
 
 #### **`yarn clean:restart`**
 
-Stops the WordPress server, delete the docker container including it's image/volumes and then start the WordPress server again (**IMPORTANT:** This will delete all data in the volumes, so make sure you have a backup of your data before running this command).
+Stops the WordPress server, deletes the docker container including it's image/volumes and then starts the WordPress server again.
+
+**IMPORTANT:** This will delete all data in the volumes, so make sure you have a backup of your data before running this command.
 
 #### **`yarn dirs`**
 
