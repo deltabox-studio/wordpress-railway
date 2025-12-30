@@ -40,29 +40,41 @@ In case you want to develop WordPress locally.
 
 ### Helper Commands
 
-**`yarn start`**
+#### **`yarn start`**
 
-Start the WordPress server.
+Starts the WordPress server.
 
-**`yarn stop`**
+#### **`yarn stop`**
 
-Stop the WordPress server.
+Stops the WordPress server.
 
-**`yarn restart`**
+#### **`yarn restart`**
 
-Stop the WordPress server and then start it again.
+Stops the WordPress server and then start it again.
 
-**`yarn clean`**
+#### **`yarn clean`**
 
-Stop the WordPress server and delete the docker container including it's image and volumes (**IMPORTANT:** This will delete all data in the volumes, so make sure you have a backup of your data before running this command).
+Stops the WordPress server and delete the docker container including it's image and volumes (**IMPORTANT:** This will delete all data in the volumes, so make sure you have a backup of your data before running this command).
 
-**`yarn clean:restart`**
+#### **`yarn clean:restart`**
 
-Stop the WordPress server, delete the docker container including it's image/volumes and then start the WordPress server again (**IMPORTANT:** This will delete all data in the volumes, so make sure you have a backup of your data before running this command).
+Stops the WordPress server, delete the docker container including it's image/volumes and then start the WordPress server again (**IMPORTANT:** This will delete all data in the volumes, so make sure you have a backup of your data before running this command).
 
-**`yarn dirs`**
+#### **`yarn dirs`**
 
-Generate the directories `data/plugins`, `data/themes`, `data/uploads` and `data/migrate`.
+Generates these directories:
+- `data/plugins`
+- `data/themes`
+- `data/uploads`
+- `data/migrate`
+
+#### **`yarn dirs:clean`**
+
+Removes all files and folders inside these directories:
+- `data/plugins`
+- `data/themes`
+- `data/uploads`
+- `data/migrate`
 
 ### Prerequisites
 
