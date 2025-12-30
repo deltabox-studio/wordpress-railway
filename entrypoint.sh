@@ -6,7 +6,7 @@ TMP_WP_DATA_PATH=$TMP_WP_PATH/data
 WP_DATA_PATH=/var/www/html
 
 # copy existing WordPress installation if it exist
-if [ -n "$(ls -A /$TMP_WP_DATA_PATH/migrate)" ]; then
+if [ -n "$(ls -A "/$TMP_WP_DATA_PATH/migrate" 2>/dev/null | grep -v '^\.gitkeep$')" ]; then
     echo "Found an existing WordPress installation."
     echo "Copying existing WordPress installation to $WP_DATA_PATH..."
     mkdir -p "$WP_DATA_PATH"

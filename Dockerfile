@@ -9,8 +9,8 @@ RUN sed -i 's/^exec "$@"/echo "Base entrypoint finished running"/' /usr/local/bi
 COPY entrypoint.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
-# # copy existing WordPress installation if it exist and move it to tmp
-# COPY ./data/migrate/. /tmp/wordpress/data/migrate/
+# copy existing WordPress installation if it exist and move it to tmp
+COPY ./data/migrate/. /tmp/wordpress/data/migrate/
 
 # set appropriate permissions for the volume
 RUN chown -R www-data:www-data /var/www/html

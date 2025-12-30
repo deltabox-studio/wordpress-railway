@@ -70,9 +70,17 @@ Assuming you have already deployed the template on Railway:
 
 ### Troubleshooting
 
-Report any issues or suggestions [here](https://github.com/deltabox-studio/wordpress-railway/issues).
+Report any issues or suggestions on [GitHub](https://github.com/deltabox-studio/wordpress-railway/issues) or [Railway](https://station.railway.com/templates/word-press-node-js-docker-d054a70f).
 
-- If you accidentally delete the directories `data/plugins`, `data/themes`, `data/uploads` or `data/migrate` you can run `yarn dirs` to recreate them.
+#### Missing Directories
+
+If you accidentally delete the directories `data/plugins`, `data/themes`, `data/uploads` or `data/migrate` you can run `yarn dirs` to recreate them.
+
+#### "dependency failed to start: container wordpress-railway-wordpress-db-1 is unhealthy"
+
+If you get this error upon container startup in your local environment, you should try one or more of the following:
+- Stop the container with `yarn stop` or `docker compose -f compose.yaml down` and restart it with `yarn dev` or `docker compose -f compose.yaml up`.
+- If the issue persists, you can try to delete the container including it's image and volumes by running `yarn clean` or `docker compose -f compose.yaml down --volumes --rmi all` and then recreate it with `yarn dev` or `docker compose -f compose.yaml up` (**IMPORTANT:** This will delete all data in the volumes, so make sure you have a backup of your data before running this command).
 
 ## Why Deploy this template on Railway?
 

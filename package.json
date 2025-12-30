@@ -5,6 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "docker compose -f compose.yaml up",
+    "stop": "docker compose -f compose.yaml down",
+    "clean": "docker compose -f compose.yaml down --volumes --rmi all",
+    "restart": "yarn stop && yarn dev",
     "dirs": "node ensure-dirs.js"
   },
   "packageManager": "yarn@4.12.0"
