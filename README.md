@@ -14,7 +14,6 @@ The template is **flexible** and **extendable** so you can even use it in a **mo
 - You want to **develop** WordPress **plugins and themes**.
 - You want to use WordPress as a **headless CMS** (API) for your frontend application.
 - You have an **existing WordPress** installation and want to migrate/use it on Railway.
-- You **can't deploy** the **other** WordPress **templates** due to crashes from the [more than one MPM loaded](https://station.railway.com/questions/more-than-one-mpm-loaded-error-on-php-8-9c836859) error.
 
 ## Deployment
 
