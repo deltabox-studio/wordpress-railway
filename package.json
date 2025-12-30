@@ -4,10 +4,11 @@
   "description": "WordPress on Railway | Node.js/Docker | Zero Config | Seamless Local Dev (custom plugins/themes/uploads)",
   "type": "module",
   "scripts": {
-    "dev": "docker compose -f compose.yaml up",
+    "start": "docker compose -f compose.yaml up",
     "stop": "docker compose -f compose.yaml down",
+    "restart": "yarn stop && yarn start",
     "clean": "docker compose -f compose.yaml down --volumes --rmi all",
-    "restart": "yarn stop && yarn dev",
+    "clean:restart": "yarn clean && yarn start",
     "dirs": "node ensure-dirs.js"
   },
   "packageManager": "yarn@4.12.0"

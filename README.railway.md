@@ -48,13 +48,39 @@ In case you want to develop WordPress locally.
 - Only `plugins`, `themes` and `uploads` are synced, the rest are ignored by default to avoid messing up the core files of WordPress.
   - Feel free to add more directories if you need them.
 
+### Helper Commands
+
+**`yarn start`**
+
+Start the WordPress server.
+
+**`yarn stop`**
+
+Stop the WordPress server.
+
+**`yarn restart`**
+
+Stop the WordPress server and then start it again.
+
+**`yarn clean`**
+
+Stop the WordPress server and delete the docker container including it's image and volumes (**IMPORTANT:** This will delete all data in the volumes, so make sure you have a backup of your data before running this command).
+
+**`yarn clean:restart`**
+
+Stop the WordPress server, delete the docker container including it's image/volumes and then start the WordPress server again (**IMPORTANT:** This will delete all data in the volumes, so make sure you have a backup of your data before running this command).
+
+**`yarn dirs`**
+
+Generate the directories `data/plugins`, `data/themes`, `data/uploads` and `data/migrate`.
+
 ### Dependencies for this template
 
 Prerequisites for local development.
 
 - [Docker](https://www.docker.com/)
 - [Node.js & npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) (optional)
-  - Only required for running `yarn dev` which is easier to remember, but you can run `docker compose -f compose.yaml up` instead.
+  - Only required for running the helper commands (eg. `yarn start` and `yarn stop`) which are easier to remember and more efficient than using the docker commands manually.
 
 ### Setup
 
@@ -64,7 +90,7 @@ Assuming you have already deployed the template on Railway:
 2. Publish the repository to GitHub.
 3. At Railway change the `Source Repo` to your cloned repository to automatically redeploy the service from your own GitHub commits (optional).
 4. Either run:
-   - `yarn install` and then `yarn dev` to start the server.
+   - `yarn install` and then `yarn start` to start the server.
    - or `docker compose -f compose.yaml up`.
 5. Open http://localhost:8080 in your browser to access WordPress.
 
@@ -79,8 +105,10 @@ If you accidentally delete the directories `data/plugins`, `data/themes`, `data/
 #### "dependency failed to start: container wordpress-railway-wordpress-db-1 is unhealthy"
 
 If you get this error upon container startup in your local environment, you should try one or more of the following:
-- Stop the container with `yarn stop` or `docker compose -f compose.yaml down` and restart it with `yarn dev` or `docker compose -f compose.yaml up`.
-- If the issue persists, you can try to delete the container including it's image and volumes by running `yarn clean` or `docker compose -f compose.yaml down --volumes --rmi all` and then recreate it with `yarn dev` or `docker compose -f compose.yaml up` (**IMPORTANT:** This will delete all data in the volumes, so make sure you have a backup of your data before running this command).
+
+- Stop the container with `yarn stop` or `docker compose -f compose.yaml down` and restart it with `yarn start` or `docker compose -f compose.yaml up`.
+  
+- If the issue persists, you can try to delete the container including it's image and volumes by running `yarn clean` or `docker compose -f compose.yaml down --volumes --rmi all` and then recreate it with `yarn start` or `docker compose -f compose.yaml up` (**IMPORTANT:** This will delete all data in the volumes, so make sure you have a backup of your data before running this command).
 
 ## Why Deploy this template on Railway?
 
