@@ -27,7 +27,6 @@ services:
     restart: always
 
     environment:
-      HEALTHCHECK_HOST: localhost
       MYSQL_DATABASE: ${MYSQL_DATABASE:-wordpress}
       MYSQL_USER: ${MYSQL_USER:-wordpress}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD:-wordpress}
@@ -42,7 +41,7 @@ services:
           "CMD",
           "mysql",
           "-h",
-          "${HEALTHCHECK_HOST}",
+          "localhost",
           "-u",
           "root",
           "-p${MYSQL_ROOT_PASSWORD}",
